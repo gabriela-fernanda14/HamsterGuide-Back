@@ -17,4 +17,7 @@ hamsterRouter.post("/", HamsterController.createHamster);
 //Atualizar um hamster pelo ID
 hamsterRouter.put("/:id", HamsterController.updateHamster);
 
+//Deletar um hamster pelo ID
+hamsterRouter.delete("/:id", HamsterController.deleteHamster);
+
 export default hamsterRouter;

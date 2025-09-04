@@ -58,6 +58,16 @@ class HamsterController {
     }
   }
   
+  async deleteHamster(req, res) {
+    const { id } = req.params;
+    try {
+      await HamsterModel.delete(id);
+      res.status(200).json({ message: "Hamster deletado com sucesso" });
+    } catch (error) {
+      console.error("Erro ao deletar hamster:", error);
+      res.status(500).json({ error: "Erro ao deletar hamster" });
+    }
+  }
 }
 
 export default new HamsterController();

@@ -39,7 +39,13 @@ class hamsterModel {
     return updatedTitle;
   }
 
-
+  async delete(id) {
+    const deletedHamster = await prisma.hamster.delete({
+      where: { id: Number(id) },
+    });
+  
+    return deletedHamster;
+  }
 }
 
 export default new hamsterModel();
