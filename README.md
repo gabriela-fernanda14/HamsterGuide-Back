@@ -1,6 +1,6 @@
 # 🐹 Guia de Cuidados com Hamsters
 
-Um projeto web completo dedicado a ensinar tudo sobre o cuidado adequado com hamsters, desenvolvido com muito carinho! 💕
+Um projeto web completo dedicado a ensinar tudo sobre o cuidado adequado com hamsters.
 
 ## 📋 Sobre o Projeto
 
@@ -11,15 +11,11 @@ Este é um guia digital interativo que reúne informações essenciais sobre dif
 - **Raças**: Cards informativos com características de cada raça
 - **Cuidados**: Guia completo de alimentação, higiene e saúde
 - **Habitat**: Como criar o ambiente perfeito
-- **Dicas & FAQ**: Respostas para as dúvidas mais comuns
-- **Contato**: Formulário para sugestões e perguntas
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend**: React.js
 - **Backend**: Node.js
 - **Banco de Dados**: MySQL
-- **Estilo**: CSS moderno
 
 ## 🎯 Objetivo
 
