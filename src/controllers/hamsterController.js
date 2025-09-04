@@ -45,6 +45,18 @@ class HamsterController {
       }
   }
 
+  async updateHamster(req, res) {
+    const { id } = req.params;
+    const hamsterData = req.body;
+
+    try {
+      const updatedHamster = await HamsterModel.update(id, hamsterData);
+      res.json(updatedHamster);
+    } catch (error) {
+      console.error("Erro ao atualizar hamster:", error);
+      res.status(500).json({ error: "Erro ao atualizar hamster" });
+    }
+  }
   
 }
 

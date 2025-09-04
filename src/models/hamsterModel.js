@@ -30,7 +30,14 @@ class hamsterModel {
     return newHamster;
   }
 
+  async update(id, hamster) {
+    const updatedTitle = await prisma.hamster.update({
+      where: { id: Number(id) },
+      data: hamster,
+    });
 
+    return updatedTitle;
+  }
 
 
 }
