@@ -22,6 +22,17 @@ class hamsterModel {
     return hamster;
   }
 
+  async create(hamster){
+    const newHamster = await prisma.hamster.create({
+      data: hamster,
+    });
+
+    return newHamster;
+  }
+
+
+
+
 }
 
 export default new hamsterModel();

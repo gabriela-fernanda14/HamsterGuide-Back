@@ -11,5 +11,7 @@ hamsterRouter.get("/", HamsterController.getAllHamsters);
 //Obter um hamster pelo ID
 hamsterRouter.get("/:id", HamsterController.getHamsterById);
 
+//Criar um novo hamster
+hamsterRouter.post("/", HamsterController.createHamster);
 
 export default hamsterRouter;

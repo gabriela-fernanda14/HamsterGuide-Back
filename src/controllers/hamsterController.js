@@ -28,6 +28,23 @@ class HamsterController {
       res.status(500).json({ error: "Erro ao buscar hamster" });
     }
   }
+
+  async createHamster(req, res) {
+      const hamsterData = req.body;
+
+      try {
+        if (!hamsterData) {
+          return res.status(400).json({ error: "Todos os dados do hamster são obrigatórios" });
+        }
+
+        const newHamster = await HamsterModel.create(hamsterData);
+        res.status(201).json(newHamster);
+      } catch (error) {
+        console.error("Erro ao criar hamster:", error);
+        res.status(500).json({ error: "Erro ao criar hamster" });
+      }
+  }
+
   
 }
 
