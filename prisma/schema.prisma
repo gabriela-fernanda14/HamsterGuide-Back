@@ -20,7 +20,7 @@ model Hamster {
   characteristics String
   habitat String
   food String
-  curoisities String
+  curiosities String
 
   @@map("hamsters")
 }
