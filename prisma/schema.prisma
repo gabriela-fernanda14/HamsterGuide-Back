@@ -14,13 +14,18 @@ datasource db {
 }
 
 model Hamster {
-  id        Int      @id @default(autoincrement())
-  name      String
-  image     String
+  id              Int    @id @default(autoincrement())
+  image           String
+  name            String
+  cientificName   String
+  origin          String
   characteristics String
-  habitat String
-  food String
-  curiosities String
+  size            String
+  weight          Float
+  habitat         String
+  food            String
+  curiosities     String
+  expectedLife    String
 
   @@map("hamsters")
 }
