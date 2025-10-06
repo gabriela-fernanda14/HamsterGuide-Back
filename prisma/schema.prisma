@@ -21,7 +21,7 @@ model Hamster {
   origin          String
   characteristics String
   size            String
-  weight          Float
+  weight          Int
   habitat         String
   food            String
   curiosities     String

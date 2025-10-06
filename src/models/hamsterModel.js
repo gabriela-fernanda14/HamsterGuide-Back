@@ -3,22 +3,16 @@ import prisma from "../../prisma/prisma.js";
 class hamsterModel {
 
   async findAll() {
-    const hamsters = await prisma.hamster.findMany({
-    });
-
-    //console.log(hamster);
-
+    const hamsters = await prisma.hamster.findMany({});
     return hamsters;
   }
 
-  // Obter um hamster pelo ID
   async findById(id) {
     const hamster = await prisma.hamster.findUnique({
       where: {
         id: Number(id),
       },
     });
-
     return hamster;
   }
 
@@ -26,7 +20,6 @@ class hamsterModel {
     const newHamster = await prisma.hamster.create({
       data: hamster,
     });
-
     return newHamster;
   }
 
@@ -38,12 +31,11 @@ class hamsterModel {
   }
 
   async update(id, hamster) {
-    const updatedTitle = await prisma.hamster.update({
+    const updatedHamster = await prisma.hamster.update({
       where: { id: Number(id) },
       data: hamster,
     });
-
-    return updatedTitle;
+    return updatedHamster;
   }
 
   async delete(id) {

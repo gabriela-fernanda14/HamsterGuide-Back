@@ -16,7 +16,15 @@ class HamsterController {
     try {
       const { id } = req.params;
 
-      const titulo = await HamsterModel.findById(id);
+      if (!id) {
+        return res.status(400).json({ error: "ID é obrigatório" });
+      }
+
+      if (isNaN(Number(id))) {
+        return res.status(400).json({ error: "ID deve ser um número válido" });
+      }
+
+      const hamster = await HamsterModel.findById(id);
 
       if (!hamster) {
         return res.status(404).json({ error: "Hamster não encontrado" });
@@ -35,6 +43,10 @@ class HamsterController {
       try {
         if (!hamsterData) {
           return res.status(400).json({ error: "Todos os dados do hamster são obrigatórios" });
+        }
+
+        if (isNaN(Number(hamsterData.weight))) {
+          return res.status(400).json({ error: "O peso deve ser em número (gramas)" });
         }
 
         const newHamster = await HamsterModel.create(hamsterData);
@@ -64,6 +76,22 @@ class HamsterController {
     const hamsterData = req.body;
 
     try {
+      if (!id) {
+        return res.status(400).json({ error: "ID é obrigatório" });
+      }
+
+      if (isNaN(Number(id))) {
+        return res.status(400).json({ error: "ID deve ser um número válido" });
+      }
+
+      if (!hamsterData) {
+        return res.status(400).json({ error: "Todos os dados do hamster são obrigatórios" });
+      }
+
+      if (isNaN(Number(hamsterData.weight))) {
+        return res.status(400).json({ error: "O peso deve ser em número" });
+      }
+
       const updatedHamster = await HamsterModel.update(id, hamsterData);
       res.json(updatedHamster);
     } catch (error) {
@@ -75,6 +103,14 @@ class HamsterController {
   async deleteHamster(req, res) {
     const { id } = req.params;
     try {
+      if (!id) {
+        return res.status(400).json({ error: "ID é obrigatório" });
+      }
+
+      if (isNaN(Number(id))) {
+        return res.status(400).json({ error: "ID deve ser um número válido" });
+      }
+
       await HamsterModel.delete(id);
       res.status(200).json({ message: "Hamster deletado com sucesso" });
     } catch (error) {
