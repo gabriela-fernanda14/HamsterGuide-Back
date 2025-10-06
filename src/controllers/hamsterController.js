@@ -45,6 +45,20 @@ class HamsterController {
       }
   }
 
+  async createManyHamsters(req, res) {
+    const hamstersData = req.body;
+    try {
+      if (!Array.isArray(hamstersData) || hamstersData.length === 0) {
+        return res.status(400).json({ error: "Um array de dados de hamsters é obrigatório" });
+      }
+      const newHamsters = await HamsterModel.createMany(hamstersData);
+      res.status(201).json(newHamsters);
+    } catch (error) {
+      console.error("Erro ao criar hamsters:", error);
+      res.status(500).json({ error: "Erro ao criar hamsters" });
+    }
+  }
+
   async updateHamster(req, res) {
     const { id } = req.params;
     const hamsterData = req.body;

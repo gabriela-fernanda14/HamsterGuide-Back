@@ -30,6 +30,13 @@ class hamsterModel {
     return newHamster;
   }
 
+  async createMany(hamsters) {
+    const newHamsters = await prisma.hamster.createMany({
+      data: hamsters,
+    });
+    return newHamsters;
+  }
+
   async update(id, hamster) {
     const updatedTitle = await prisma.hamster.update({
       where: { id: Number(id) },
